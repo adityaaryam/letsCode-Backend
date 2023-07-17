@@ -27,17 +27,13 @@ app.use(passport.session());
 app.use(express.static("public"));
 
 let transport = nodemailer.createTransport({
-    host:"smtp-mail.outlook.com",
-    port:587,
-    secureConnection:false,
+    host:"sandbox.smtp.mailtrap.io",
+    port:2525,
     // requireTLS:true,
     // service:"outlook",
     auth: {
         user: process.env.EMAIL,
         pass: process.env.PASS
-    },
-    tls:{
-        ciphers:'SSLv3'
     }
 });
 mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING)
@@ -126,7 +122,7 @@ app.post("/checkuser&sendCode",function(req,res){
             {
                 let msg= 'The Verification Code is '+String(code)+'\nIgnore if you did not request this.'+'\n\nRegards,\nTeam LetsCode';
                 const message={
-                    from: process.env.EMAIL,
+                    from: 'letselectronics.ace@outlook.com',
                     to: email,
                     subject: 'Reset Password',
                     text:msg
@@ -259,7 +255,7 @@ app.post("/emailverif",function(req,res){
             {
                 res.send(false)
                 const message={
-                    from: process.env.EMAIL,
+                    from: 'letselectronics.ace@outlook.com',
                     to: email,
                     subject: 'Verify your email on LetsCode',
                     text:msg
