@@ -27,8 +27,8 @@ app.use(passport.session());
 app.use(express.static("public"));
 
 let transport = nodemailer.createTransport({
-    host:"smtp-mail.outlook.com",
-    port:587,
+    host:"smtp.office365.com",
+    port:589,
     secureConnection:false,
     // requireTLS:true,
     // service:"outlook",
@@ -36,9 +36,9 @@ let transport = nodemailer.createTransport({
         user: process.env.EMAIL,
         pass: process.env.PASS
     },
-    tls:{
-        ciphers:'SSLv3'
-    }
+    // tls:{
+    //     ciphers:'SSLv3'
+    // }
 });
 mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING)
 
