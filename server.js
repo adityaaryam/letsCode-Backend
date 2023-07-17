@@ -27,11 +27,11 @@ app.use(passport.session());
 app.use(express.static("public"));
 
 let transport = nodemailer.createTransport({
-    host:"smtp.office365.com",
-    port:589,
+    host:"smtp-mail.outlook.com",
+    port:587,
     secureConnection:false,
     // requireTLS:true,
-    // service:"outlook",
+    service:"outlook",
     auth: {
         user: process.env.EMAIL,
         pass: process.env.PASS
