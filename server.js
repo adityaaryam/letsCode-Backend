@@ -29,7 +29,7 @@ app.use(express.static("public"));
 let transport = nodemailer.createTransport({
     host:"smtp-mail.outlook.com",
     port:587,
-    secureConnection:false,
+    secure:false,
     // requireTLS:true,
     service:"outlook",
     auth: {
