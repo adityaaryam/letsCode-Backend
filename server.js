@@ -170,6 +170,7 @@ app.post("/register",async function(req,res){
     user.save(err=>{
         if(!err)
         res.send(name.split(" ")[0])
+        else console.log(err);
     })
     // console.log("success")
     // console.log(req.body.name)
