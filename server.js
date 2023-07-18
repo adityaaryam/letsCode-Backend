@@ -204,7 +204,7 @@ const getOutput = (outputDetails) => {
 app.post("/compile",function(req,res){
     const {custIn, code, nece}=req.body;
     res.send("Succesfully received");
-    submissions.findOne({_id:"hehe"},async function(err, submission){
+    submissions.findOne({_id:"hehe"},function(err, submission){
         if(err) console.log(err);
         else
         {
